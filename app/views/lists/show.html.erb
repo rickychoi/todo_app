@@ -1,0 +1,26 @@
+<h1><%= @list.name %></h1>
+
+<table>
+  <tr>
+    <th width="200" align="left">task</th>
+    <th width="50" align="left">status</th>
+    <th>delete</th>
+  </tr>
+
+
+<% @list.tasks.each do |tsk| %>
+  <tr>
+    <td><%= link_to tsk.name, edit_list_task_path(@list, tsk) %></td>
+    <td><%= tsk.status == false ? :active : :complete %></td>
+    <td><%= link_to 'delete', list_task_path(@list, tsk), :method => :delete %></td>
+  </tr>
+<% end %>
+
+<tr><td colspan="4"><br></td></tr>
+<tr><td><%= link_to 'create task', new_list_task_path(@list) %></td><td colspan="3"></td></tr>
+
+</table>
+
+
+
+<%= link_to 'back', lists_path %>

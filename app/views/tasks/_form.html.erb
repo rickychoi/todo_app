@@ -1,0 +1,14 @@
+<%= form_for([@list, @task]) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <%= @list.errors.full_messages %>
+    </div>
+  <% end %>
+  <div id="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+      <br><%= f.submit %>
+  </div>
+<% end %>
